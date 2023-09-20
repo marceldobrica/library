@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestTwigController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    {% for message in app.flashes('notice') %}
+        {{ 'notice: ' ~ message }} <br>
+    {% endfor %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {{ label ~ ': ' ~ message }} <br>
+        {% endfor %}
+    {% endfor %}
+
+    {{ date() |format_datetime(locale='en', timezone='Pacific/Midway', calendar="Islamic") }}
+
+    {{ form(form) }}
+    
+    <ul>
+        <li>Your controller at <code><a href="{{ '/home/marceldobrica/projects/symfony63/src/Controller/TestTwigController.php'|file_link(0) }}">src/Controller/TestTwigController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/home/marceldobrica/projects/symfony63/templates/test_twig/index.html.twig'|file_link(0) }}">templates/test_twig/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}
